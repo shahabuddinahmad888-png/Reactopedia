@@ -69,19 +69,6 @@ export default function Chatbot() {
     setInput("");
     setIsLoading(true);
 
-    if (!genAI) {
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content: "Gemini API key is missing. Please configure VITE_GEMINI_API_KEY."
-        }
-      ]);
-
-      setIsLoading(false);
-      return;
-    }
-
     try {
       const prompt = `
 ${knowledgeBase}

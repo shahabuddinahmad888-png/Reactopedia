@@ -95,20 +95,7 @@ export default function ReactopediaBot() {
     setMessages(updatedMessages);
     setInput("");
 
-    // Check API Configuration
-    if (!genAI) {
-
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content:
-            "Gemini API is not configured. Please check your .env file."
-        }
-      ]);
-
-      return;
-    }
+    
 
     setLoading(true);
 
