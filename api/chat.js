@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   for (let attempt = 1; attempt <= 2; attempt++) {
     try {
       const response = await ai.models.generateContent({
-        model: "gemini-3.8-flash",
+        model: "gemini-3.1-flash-lite",
         contents: prompt
       });
 
