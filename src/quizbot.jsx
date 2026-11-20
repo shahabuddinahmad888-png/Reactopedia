@@ -1,12 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import { GoogleGenAI } from "@google/genai";
+
 
 // Gemini API Configuration
-const geminiApiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
-const genAI = geminiApiKey
-  ? new GoogleGenAI({ apiKey: geminiApiKey })
-  : null;
 
 // Reactopedia Knowledgebase
 const knowledgeBase = `
@@ -141,16 +137,22 @@ Maintain the score throughout the quiz.
 `;
 
       // Generate Response
-      const result = await genAI.models.generateContent({
+      const response = await fetch("/api/chat", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ prompt })
+});
 
-        model: "gemini-2.5-flash",
+const data = await response.json();
 
-        contents: prompt
+if (!response.ok) {
+  throw new Error(data.error || "Gemini API request failed");
+}
 
-      });
-
-      const reply =
-        result.text || "Sorry, I could not generate a response.";
+const reply =
+  data.text || "Sorry, I could not generate a response.";
 
       // Display AI Response
       setMessages((prev) => [

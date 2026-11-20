@@ -1,11 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import { GoogleGenAI } from "@google/genai";
+
 
 const geminiApiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
-const genAI = geminiApiKey
-  ? new GoogleGenAI({ apiKey: geminiApiKey })
-  : null;
+
 
 const knowledgeBase = `
 You are Reactopedia AI, a polite and helpful React learning assistant.
@@ -94,13 +92,22 @@ ${userInput}
 Answer clearly and politely.
 `;
 
-      const result = await genAI.models.generateContent({
-        model: "gemini-3.8-flash",
-        contents: prompt
-      });
+      const response = await fetch("/api/chat", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ prompt })
+});
 
-      const reply =
-        result.text || "Sorry, I couldn't generate a response.";
+const data = await response.json();
+
+if (!response.ok) {
+  throw new Error(data.error || "Gemini API request failed");
+}
+
+const reply =
+  data.text || "Sorry, I couldn't generate a response.";
 
       setMessages((prev) => [
         ...prev,
