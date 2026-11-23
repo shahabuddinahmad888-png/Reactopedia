@@ -9,6 +9,15 @@ import { ThemeContext } from '../context/ThemeContext';
 import { UserContext } from '../context/userContext';
 import './Home.css';
 
+const formatArticleDate = (date) => {
+  const [year, month, day] = date.split('-').map(Number);
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(new Date(year, month - 1, day));
+};
+
 export default function Home() {
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('all');
@@ -110,7 +119,7 @@ export default function Home() {
                           </span>
                         ))}
                         <span className="last-updated">
-                          Updated {article.lastEdited}
+                          Updated {formatArticleDate(article.lastEdited)}
                         </span>
                       </div>
                     </div>
