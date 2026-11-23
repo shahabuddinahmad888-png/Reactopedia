@@ -1,4 +1,4 @@
-import { FaGithub, FaTwitter, FaReact, FaPhoneAlt } from "react-icons/fa";
+import { FaGithub, FaReact, FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Footer.css";
 import { useState } from "react";
@@ -53,14 +53,11 @@ export default function Footer() {
           </form>
         </div>
         <div className="footer-social">
-  <a href="tel:+919823422438" title="Call" aria-label="Phone">
-    <FaPhoneAlt />
-  </a>
-          <a href="https://github.com/vaishali-s18/my-react-app" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <FaGithub />
+          <a href="mailto:shahabuddinahmad888@gmail.com" aria-label="Email Shahabuddin Ahmad">
+            <FaEnvelope />
           </a>
-          <a href="https://twitter.com/reactopedia" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-            <FaTwitter />
+          <a href="https://github.com/shahabuddinahmad888-png" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <FaGithub />
           </a>
         </div>
       </div>
