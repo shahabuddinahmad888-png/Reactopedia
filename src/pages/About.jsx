@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
-import { FaTwitter, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaEnvelope } from 'react-icons/fa';
 import './About.css';
 
 const About = () => {
@@ -8,10 +8,7 @@ const About = () => {
 
   // Team members data
   const team = [
-    { name: "Himanshi", role: "Reactpedia designer", image: "/src/img/team1.jpg" },
-    { name: "Rajan", role: "Reactpedia designer", image: "/src/img/team1.jpg" },
-    { name: "Dev", role: "Reactpedia designer", image: "/src/img/team1.jpg" }
-    
+    { name: "Shahabuddin Ahmad", role: "Reactopedia Creator & Developer" }
   ];
 
   // FAQ data
@@ -21,7 +18,7 @@ const About = () => {
     { question: "How can I contact you?", answer: "You can reach us via email or social media links below." },
     { question: "Do you offer certifications?", answer: "Currently, we do not offer certifications, but we are exploring options." },
     { question: "What topics do you cover?", answer: "We cover everything from React basics to advanced concepts like hooks and state management." },
-    { question: "How can I stay updated?", answer: "Follow us on Twitter or subscribe to our newsletter for the latest updates." },
+    { question: "How can I stay updated?", answer: "Check our GitHub profile or subscribe to our newsletter for the latest updates." },
     { question: "Can I suggest a tutorial topic?", answer: "Yes! We welcome suggestions. Reach out via our contact page." },
   
   ];
@@ -124,13 +121,10 @@ const About = () => {
         <div className="about-section contact">
           <h2>Get In Touch</h2>
           <div className="contact-methods">
-            <a href="mailto:contact@reactopedia.dev" className="contact-link">
+            <a href="mailto:shahabuddinahmad888@gmail.com" className="contact-link">
               <FaEnvelope /> Email Us
             </a>
-            <a href="https://twitter.com/reactopedia" target="_blank" rel="noopener noreferrer" className="contact-link">
-              <FaTwitter /> Twitter
-            </a>
-            <a href="https://github.com/vaishali-s18/my-react-app" target="_blank" rel="noopener noreferrer" className="contact-link">
+            <a href="https://github.com/shahabuddinahmad888-png" target="_blank" rel="noopener noreferrer" className="contact-link">
               <FaGithub /> GitHub
             </a>
           </div>
